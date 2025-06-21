@@ -98,7 +98,7 @@ async def play(ctx, *, search_query):
             ctx.voice_client.stop()
 
         ctx.voice_client.play(source, after=after_playing)
-        await ctx.send(f"🎶 Reproduciendo: **{title}**")
+        await ctx.send(f'🎶 Reproduciendo: **{title}**   -- use *stop to stop me 🍌 🍌 🍌🐵 🙈 🙉 ')
 
     except asyncio.TimeoutError:
         await ctx.send("⏰ Tiempo expirado. Intenta de nuevo.")
