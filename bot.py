@@ -69,11 +69,16 @@ async def play(ctx, *, search_query):
             "noplaylist": True,
             "skip_download": True,
         }
+
+        title = options[choice]
+        await ctx.channel.purge(limit=100)
+        await ctx.send(f'🎶 Reproduciendo {title}   -- use *stop to stop me 🍌 🍌 🍌🐵 🙈 🙉 ')
         with yt_dlp.YoutubeDL(ydl_opts_play) as ydl:
             selected_info = ydl.extract_info(entries[choice]["url"], download=False)
 
         url = selected_info["url"]
-        title = selected_info.get("title", "Video de YouTube")
+        #title = selected_info.get("title", "Video de YouTube")
+
 
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -98,7 +103,8 @@ async def play(ctx, *, search_query):
             ctx.voice_client.stop()
 
         ctx.voice_client.play(source, after=after_playing)
-        await ctx.send(f'🎶 Reproduciendo: **{title}**   -- use *stop to stop me 🍌 🍌 🍌🐵 🙈 🙉 ')
+       
+        
 
     except asyncio.TimeoutError:
         await ctx.send("⏰ Tiempo expirado. Intenta de nuevo.")
