@@ -2,7 +2,7 @@ Hello i'm Fabri, this bot consists in the use of the following python Libraries 
 
   - discord.py
   - yt_dlp
-  - 
+
 
 and one of the latest releases of the FFMPEG binaries.
 
